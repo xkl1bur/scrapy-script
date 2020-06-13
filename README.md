@@ -146,10 +146,11 @@ Updates, additional features or bug fixes are always welcome.
 
 # Version History
 
-1.1.0 - 12-Jun-2020 - support to latest libs, added example and fixed return a list of consolidated results.
-1.0.0 - 10-Dec-2017 - API changes to pass *args and **kwargs to running spider  
-0.1.0 - 28-May-2017 - patches to support Celery 4+ and Billiard 3.5.+.  
-Thanks to @mrge, @bmartel and @jschnurr.
+* 1.1.0 - 12-Jun-2020 - support to latest libs, added example and fixed return a list of consolidated results
+* 1.0.0 - 10-Dec-2017 - API changes to pass *args and **kwargs to running spider  
+* 0.1.0 - 28-May-2017 - patches to support Celery 4+ and Billiard 3.5.+.  
+
+``Thanks to @mrge, @bmartel and @jschnurr.``
 
 # License
 
