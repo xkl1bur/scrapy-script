@@ -2,7 +2,7 @@
 
 # Overview
 
-Scrapyscript provides a minimalist interface for invoking Scrapy directly
+Fork: Modified from https://github.com/jschnurr/scrapyscript'. Scrapy-script provides a minimalist interface for invoking Scrapy directly
 from your code. Define Jobs that include your spider and any object
 you would like to pass to the running spider, and then pass them to an
 instance of Processor which will block, run the spiders, and return a list
@@ -13,13 +13,13 @@ run Scrapy from a Celery job.
 
 # Requirements
 
-- Python 2.7 or 3.5
-- Tested on Linux only (other platforms may work as well)
+- Python 2.7 or 3.8
+- Tested on Linux & Windows
 
 # Install
 
 ```python
-pip install scrapyscript
+pip install scrapy_script
 ```
 
 # Example
@@ -146,9 +146,10 @@ Updates, additional features or bug fixes are always welcome.
 
 # Version History
 
+1.1.0 - 12-Jun-2020 - support to latest libs, added example and fixed return a list of consolidated results.
 1.0.0 - 10-Dec-2017 - API changes to pass *args and **kwargs to running spider  
 0.1.0 - 28-May-2017 - patches to support Celery 4+ and Billiard 3.5.+.  
-Thanks to @mrge and @bmartel.
+Thanks to @mrge, @bmartel and @jschnurr.
 
 # License
 

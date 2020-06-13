@@ -18,7 +18,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.1.0',
+    version='1.1.0',
 
     description='Run a Scrapy spider programmatically from a script or a Celery task - no project required.',
     long_description='scrapy-script allows you to invoke one or more spiders from a script, have them all run in '
