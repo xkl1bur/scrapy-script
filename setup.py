@@ -5,12 +5,60 @@ https://github.com/pypa/sampleproject
 """
 
 # Always prefer setuptools over distutils
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup, Command
 # To use a consistent encoding
 from codecs import open
 from os import path
+from shutil import rmtree
+import os
+import sys
 
 here = path.abspath(path.dirname(__file__))
+
+VERSION = None
+
+about = {}
+if not VERSION:
+    with open(os.path.join(here, '__version__.py')) as f:
+        exec(f.read(), about)
+else:
+    about['__version__'] = VERSION
+
+
+class UploadCommand(Command):
+    description = 'Build and publish the package.'
+    user_options = []
+
+    @staticmethod
+    def status(s):
+        """Prints things in bold."""
+        print('\033[1m{0}\033[0m'.format(s))
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        try:
+            self.status('Removing previous builds…')
+            rmtree(os.path.join(here, 'dist'))
+        except OSError:
+            pass
+
+        self.status('Building Source and Wheel (universal) distribution…')
+        os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
+
+        self.status('Uploading the package to PyPI via Twine…')
+        os.system('twine upload dist/*')
+
+        self.status('Pushing git tags…')
+        os.system('git tag v{0}'.format(about['__version__']))
+        os.system('git push --tags')
+
+        sys.exit()
+
 
 setup(
     name='scrapy_script',
@@ -18,7 +66,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.1.0',
+    version=about['__version__'],
 
     description='Run a Scrapy spider programmatically from a script or a Celery task - no project required.',
     long_description='scrapy-script allows you to invoke one or more spiders from a script, have them all run in '
@@ -81,5 +129,10 @@ setup(
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
+    },
+
+    # $ setup.py publish support.
+    cmdclass={
+        'upload': UploadCommand,
     },
 )

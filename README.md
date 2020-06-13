@@ -144,6 +144,44 @@ tox
 
 Updates, additional features or bug fixes are always welcome.
 
+## Cloning Project
+
+First clone scrapy-script locally:
+
+```git
+git clone https://github.com/xkl1bur/scrapy-script.git
+```
+
+Once the clone is complete, a scrapy-script folder is generated locally.
+
+## Dependencies
+
+Go to the scrapy-script folder and install the dependencies you need for development:
+
+```python
+pip3 install -r requirements.txt
+```
+
+Then install scrapy-script locally:
+
+```python
+python3 setup.py install
+```
+
+This installs the development version of scrapy-script, and if scrapy-script was previously installed, this installation will replace the previous version.
+
+The scrapy-script command can be used after the installation is complete.
+
+## Code Release
+
+The release of the backend code can be executed directly:
+
+```python
+python3 setup.py upload
+```
+
+It will be automatically uploaded to PyPi and tagged on GitHub, but you must have PyPi and GitHub permissions.
+
 # Version History
 
 * 1.1.0 - 12-Jun-2020 - support to latest libs, added example and fixed return a list of consolidated results

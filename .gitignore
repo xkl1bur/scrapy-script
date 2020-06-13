@@ -2,6 +2,12 @@
 __pycache__/
 *.py[cod]
 dist/
-scrapyscript.egg-info/
+scrapy_script.egg-info/
 .#*
 .tox/
+
+/.idea
+/.vscode
+*.pyc
+/dist
+/build
